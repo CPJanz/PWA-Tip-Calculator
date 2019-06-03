@@ -4,8 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="theme-color" content="#317EFB" />
     <link rel="stylesheet" href="assets/style/reset.css" />
     <link rel="stylesheet" href="assets/style/style.css" />
+    <link rel="manifest" href="manifest.json" />
     <title>Tip Calculator</title>
   </head>
   <body>
@@ -13,12 +15,13 @@
     <main>
       <label for="subtotal-input">Bill Subtotal</label>
       <input type="number" id="subtotal-input" />
+      <label for="payer-input"># of People</label>
+      <input type="number" id="payer-input" value="1" />
       <label for="tip-input">Tip %</label>
       <input type="range" id="tip-input" min="0" max="100" />
       <span id="tip-input-value"></span>
-      <h3>Tip:<span id="tip-amount"></span></h3>
+      <h3>Tip: <span id="tip-amount"></span> (per person)</h3>
     </main>
-    <script src="assets/scripts/app.js
-  "></script>
+    <script src="app.js"></script>
   </body>
 </html>
