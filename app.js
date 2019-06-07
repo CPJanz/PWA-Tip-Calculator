@@ -3,6 +3,7 @@ const tipRangeIndicator = document.querySelector("#tip-input-value");
 const subtotalInput = document.querySelector("#subtotal-input");
 const tipDisplay = document.querySelector("#tip-amount");
 const payerCount = document.querySelector("#payer-input");
+const perPersonText = document.querySelector("#per-person-text");
 
 window.addEventListener("load", e => {
   tipRangeIndicator.innerHTML = tipRangeInput.value;
@@ -31,6 +32,8 @@ payerCount.addEventListener("change", e => {
   e.target.value = Math.floor(e.target.value);
   if (e.target.value > 0) {
     tipDisplay.innerHTML = calculateTip();
+    perPersonText.style.display = e.target.value > 1 ? "inline" : "none";
+    console.log(perPersonText.style.display);
   } else {
     e.target.value = 1;
     console.log(

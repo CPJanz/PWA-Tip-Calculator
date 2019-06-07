@@ -1,0 +1,31 @@
+h1 {
+  font-size: 3rem;
+  text-align: center;
+}
+
+main > div {
+  text-align: center;
+  font-size: 2rem;
+  padding: 1rem;
+}
+
+input {
+  font-size: 2rem;
+}
+
+#payer-input {
+  width: 1.5em;
+  text-align: center;
+}
+
+#subtotal-input {
+  width: 4em;
+}
+
+#per-person-text {
+  display: none;
+}
+
+.sub-text {
+  font-size: 1rem;
+}
