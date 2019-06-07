@@ -1,6 +1,14 @@
+body {
+  background-color: #5da9e9;
+}
+
 h1 {
   font-size: 3rem;
   text-align: center;
+}
+
+main {
+  background-color: white;
 }
 
 main > div {
