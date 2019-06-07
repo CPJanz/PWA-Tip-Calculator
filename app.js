@@ -30,16 +30,14 @@ subtotalInput.addEventListener("change", e => {
 
 payerCount.addEventListener("change", e => {
   e.target.value = Math.floor(e.target.value);
-  if (e.target.value > 0) {
-    tipDisplay.innerHTML = calculateTip();
-    perPersonText.style.display = e.target.value > 1 ? "inline" : "none";
-    console.log(perPersonText.style.display);
-  } else {
+  if (e.target.value < 1) {
     e.target.value = 1;
     console.log(
       "TODO:number of people must be greater than 0. Add user facing error state."
     );
   }
+  tipDisplay.innerHTML = calculateTip();
+  perPersonText.style.display = e.target.value > 1 ? "inline" : "none";
 });
 
 function calculateTip() {
