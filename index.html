@@ -83,21 +83,21 @@
         <input type="number" id="payer-input" value="1" />
       </div>
       <div>
-        <label for="subtotal-input">Bill Subtotal</label>
+        <label for="subtotal-input">Check Total</label>
         $<input type="number" id="subtotal-input" />
       </div>
       <div>
-        <label for="tip-input">Tip %</label>
+        <label for="tip-input">Tip</label>
         <input type="range" id="tip-input" min="0" max="100" />
         <span id="tip-input-value">50</span>%
       </div>
-      <div>
-        <h3>
-          Tip: $<span id="tip-amount">0.00</span>
-          <span id="per-person-text" class="sub-text"> (per person)</span>
-        </h3>
-      </div>
     </main>
+    <div id="tip-div">
+      <h3>
+        Tip: $<span id="tip-amount">0.00</span>
+        <span id="per-person-text" class="sub-text"> per person</span>
+      </h3>
+    </div>
     <script src="app.js"></script>
   </body>
 </html>
