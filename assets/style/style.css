@@ -1,10 +1,16 @@
+@import url("https://fonts.googleapis.com/css?family=Arizonia&display=swap");
+
 body {
   background-color: #5da9e9;
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 6rem;
   text-align: center;
+  font-family: "Arizonia", cursive;
+  text-shadow: 2px 1px #1b2432;
+  color: #f4f9e9;
+  padding-bottom: 1rem;
 }
 
 main {
