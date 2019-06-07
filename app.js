@@ -27,6 +27,7 @@ window.addEventListener("beforeinstallprompt", e => {
   // Stash the event so it can be triggered later.
   deferredPrompt = e;
   console.log("prompt triggered!");
+  prompt("Hello! install?");
 });
 
 tipRangeInput.addEventListener("input", e => {
