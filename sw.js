@@ -11,11 +11,24 @@ self.addEventListener("install", async e => {
 });
 
 self.addEventListener("fetch", e => {
-  let online = navigator.onLine;
-  console.log("online?", online);
-  const req = e.request;
-  e.respondWith(cacheFirst(req));
+  e.respondWith(fetch(e.request).catch(() => caches.match(e.request)));
 });
+
+// self.addEventListener("fetch", function(event) {
+//   event.respondWith(
+//     fetch(event.request).catch(function() {
+//       return caches.match(event.request);
+//     })
+//   );
+// let online = navigator.onLine;
+// const req = e.request;
+// if (online) {
+//   console.log("Online");
+// } else {
+//   e.respondWith(cacheFirst(req));
+//   console.log("Offline, serving cache.");
+// }
+// });
 
 async function cacheFirst(req) {
   const cachedResponse = await caches.match(req);
