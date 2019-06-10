@@ -17,6 +17,11 @@ h1 {
 }
 
 main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: Calc(100vh - 23rem);
+  padding: 5rem 0;
   background-color: white;
   border-top: 1px solid #1b2432;
 }
@@ -46,7 +51,7 @@ input {
 
 #tip-div {
   text-align: center;
-  font-size: 2rem;
+  font-size: 4rem;
   padding: 1rem;
   text-shadow: 2px 1px #1b2432;
   color: #f4f9e9;
@@ -54,4 +59,9 @@ input {
 
 .sub-text {
   font-size: 1.25rem;
+}
+
+#tip-input-value {
+  width: 1.5em;
+  text-align: center;
 }
