@@ -2,8 +2,6 @@
 
 body {
   background-color: #5da9e9;
-  /* position: fixed;
-  overflow: hidden; */
   width: 100%;
 }
 
@@ -64,4 +62,11 @@ input {
 #tip-input-value {
   width: 1.5em;
   text-align: center;
+}
+
+/* Removes the spinner buttons on number inputs */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
