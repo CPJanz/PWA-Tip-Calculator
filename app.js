@@ -21,6 +21,7 @@ window.addEventListener("load", e => {
 // Event listners for UI input interactions and updates the dipslays.
 tipRangeInput.addEventListener("input", e => {
   tipRangeDisplay.value = e.target.value;
+  tipDisplay.innerHTML = calculateTip();
 });
 
 tipRangeDisplay.addEventListener("change", e => {
@@ -31,10 +32,6 @@ tipRangeDisplay.addEventListener("change", e => {
     e.target.value = 0;
   }
   tipRangeInput.value = e.target.value;
-  tipDisplay.innerHTML = calculateTip();
-});
-
-tipRangeInput.addEventListener("change", e => {
   tipDisplay.innerHTML = calculateTip();
 });
 
