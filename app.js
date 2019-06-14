@@ -3,6 +3,7 @@ const tipRangeInput = document.querySelector("#tip-input");
 const tipRangeDisplay = document.querySelector("#tip-input-value");
 const subtotalInput = document.querySelector("#subtotal-input");
 const tipDisplay = document.querySelector("#tip-amount");
+const tipText = document.querySelector("#tip-div");
 const payerCount = document.querySelector("#payer-input");
 const perPersonText = document.querySelector("#per-person-text");
 
@@ -21,7 +22,7 @@ window.addEventListener("load", e => {
 // Event listners for UI input interactions and updates the dipslays.
 tipRangeInput.addEventListener("input", e => {
   tipRangeDisplay.value = e.target.value;
-  tipDisplay.innerHTML = calculateTip();
+  calculateTip();
 });
 
 tipRangeDisplay.addEventListener("change", e => {
@@ -32,11 +33,11 @@ tipRangeDisplay.addEventListener("change", e => {
     e.target.value = 0;
   }
   tipRangeInput.value = e.target.value;
-  tipDisplay.innerHTML = calculateTip();
+  calculateTip();
 });
 
 subtotalInput.addEventListener("change", e => {
-  tipDisplay.innerHTML = calculateTip();
+  calculateTip();
 });
 
 payerCount.addEventListener("change", e => {
@@ -45,18 +46,38 @@ payerCount.addEventListener("change", e => {
   if (e.target.value < 1) {
     e.target.value = 1;
   }
-  tipDisplay.innerHTML = calculateTip();
+  calculateTip();
   // Shows text specifiying that the tip is per person if the payers > 1.
   perPersonText.style.display = e.target.value > 1 ? "inline" : "none";
 });
 
-// Helper function to calculate the tip. Returns the formatted dollar amount.
+// Helper function that calculates and formats the tip and then displays it on the screen.
 function calculateTip() {
-  return (
-    (tipRangeInput.value * subtotalInput.value) /
-    (100 * payerCount.value)
-  ).toLocaleString("en-US", {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2
+  let tip =
+    (tipRangeInput.value * subtotalInput.value) / (100 * payerCount.value);
+  let centDisplay = 2;
+  let displaySize = "4rem";
+  if (payerCount.value === "1") {
+    if (tip >= 1000) {
+      tip = Math.ceil(tip);
+      centDisplay = 0;
+    }
+    if (tip >= 100000) {
+      displaySize = "3rem";
+    }
+  } else {
+    if (tip >= 10) {
+      displaySize = "3rem";
+    }
+    if (tip >= 1000) {
+      tip = Math.ceil(tip);
+      centDisplay = 0;
+    }
+  }
+
+  tipText.style.fontSize = displaySize;
+  tipDisplay.innerHTML = tip.toLocaleString("en-US", {
+    minimumFractionDigits: centDisplay,
+    maximumFractionDigits: centDisplay
   });
 }
